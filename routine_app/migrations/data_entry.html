@@ -1,0 +1,41 @@
+<!-- routine_app/templates/routine_app/data_entry.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry Page</title>
+</head>
+<body>
+    <h2>Data Entry Page</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Faculty File Upload -->
+        <div style="margin-bottom: 10px;">
+            <label for="{{ form.faculty_file.id_for_label }}">Upload Faculty Details:</label>
+            {{ form.faculty_file }}
+        </div>
+
+        <!-- Subject File Upload -->
+        <div style="margin-bottom: 10px;">
+            <label for="{{ form.subject_file.id_for_label }}">Upload Subject Details:</label>
+            {{ form.subject_file }}
+        </div>
+
+        <!-- Section File Upload -->
+        <div style="margin-bottom: 10px;">
+            <label for="{{ form.section_file.id_for_label }}">Upload Section Details:</label>
+            {{ form.section_file }}
+        </div>
+
+        <!-- Room File Upload -->
+        <div style="margin-bottom: 10px;">
+            <label for="{{ form.room_file.id_for_label }}">Upload Room Details:</label>
+            {{ form.room_file }}
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

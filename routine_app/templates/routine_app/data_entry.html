@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'routine_app/style.css' %}">
+    <title>Routine Generation System - Admin</title>
+</head>
+<body>
+    <div class="wrapper">
+        <section class="form files">
+            <header>Routine Generation System</header>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="field file">
+                    <label for="{{ form.faculty_file.id_for_label }}">Upload Faculty details</label>
+                    {% comment %} <input type="file" accept=".xls,.xlsx"> {% endcomment %}
+                    {{ form.faculty_file }}
+                </div>
+
+                <div class="field file">
+                    <label for="{{ form.subject_file.id_for_label }}">Upload Subject Details:</label>
+                    {% comment %} <input type="file" accept=".xls,.xlsx"> {% endcomment %}
+                    {{ form.subject_file }}
+                </div>
+
+                <div class="field file">
+                    <label for="{{ form.section_file.id_for_label }}">Upload Section Details:</label>
+                    {% comment %} <input type="file" accept=".xls,.xlsx"> {% endcomment %}
+                    {{ form.section_file }}
+                </div>
+
+                <div class="field file">
+                    <label for="{{ form.room_file.id_for_label }}">Upload Room Details:</label>
+                    {% comment %} <input type="file" accept=".xls,.xlsx"> {% endcomment %}
+                    {{ form.room_file }}
+                </div>
+
+                <div class="field button">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

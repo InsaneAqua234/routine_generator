@@ -1,0 +1,43 @@
+<!-- routine_app/templates/routine_app/display_routine.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Routine</title>
+</head>
+<body>
+    <h2>Generated Routine</h2>
+
+    {% if routine_data %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <!-- Modify these headers based on your routine_data columns -->
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>Instructor</th>
+                    <th>Room</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in routine_data.iterrows %}
+                    <tr>
+                        <!-- Modify these values based on your routine_data columns -->
+                        <td>{{ row.Day }}</td>
+                        <td>{{ row.Time }}</td>
+                        <td>{{ row.Subject }}</td>
+                        <td>{{ row.Instructor }}</td>
+                        <td>{{ row.Room }}</td>
+                        <td>{{ row.Duration }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No routine available.</p>
+    {% endif %}
+</body>
+</html>

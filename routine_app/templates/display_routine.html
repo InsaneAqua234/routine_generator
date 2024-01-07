@@ -1,0 +1,44 @@
+<!-- display_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'routine_app/styles2.css' %}">
+
+    
+
+</head>
+<body>
+    <h2>Data Display</h2>
+
+    {% for sheet_name, dataframe in routine_data.items %}
+        <h3>Data from Sheet: {{ sheet_name }}</h3>
+        {% if dataframe.empty %}
+            <p>No data available.</p>
+        {% else %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        {% for column in dataframe.columns %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in dataframe.values %}
+                        <tr>
+                            {% for value in row %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <hr>
+    {% endfor %}
+</body>
+</html>
